@@ -45,8 +45,25 @@ h1{
 	background-color: #38a;
 }
 
+.choice-container{
+    display:flex;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    border-radius: 40px;
+    background: pink;
+    font-size: 20px;
+    min-width: 50rem;
+    cursor: pointer;
+    display:none;
+}
 
-
+#question{
+    display:none;
+}
+.choice-container:hover{
+    background-color: lightblue;
+    transform: scale(1.02);
+}
 
 
 .slide{
