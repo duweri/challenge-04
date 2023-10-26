@@ -27,11 +27,11 @@ var questions = [
            
         
     
-           { question: "What is a function?",
+           { question: "What is html used for?",
             answers: [
-               { text: "stores a series of characters", correct: false},
-                { text: "block of text that carries out a function", correct: false},
-                { text: "block of code that carries out a task", correct: true}, ]
+               { text: "to design your web browser", correct: false},
+                { text: "to make browser interactive", correct: false},
+                { text: "to structure and give content to web page", correct: true}, ]
             },
             
 ]
@@ -112,17 +112,34 @@ function showQuestion() {
    var questionNo = currentQuestionIndex + 1;
    questionEl.innerHTML = questionNo + "." + currentQuestion.question;
 
-   currentQuestion.answers.forEach(answer => {
+   answerButton.textContent = ""
+   currentQuestion.answers.forEach ((answer, index) => {
     var button = document.createElement("button");
-    button.innerHTML = answer.text;
+    button.innerHTML = (index+1) + ". " + answer.text;
     button.classList.add("btn");
+    button.setAttribute("value", answer.correct)
     answerButton.appendChild(button);
     
-    
+    button.onclick = checkAnswers 
    });
 }
 
 
+function checkAnswers () {
+    console.log(this)
+    console.log(this.value)
+    answerButton.addEventListener("click", changePurple)
+}
+
+function changePurple(event) {
+    event.currentTarget.setAttribute(
+        "style", "background-color: #6014A4A"
+    );}
+
+nextButton.addEventListener("click", function () {
+    currentQuestionIndex++
+    showQuestion();
+})
 
 
 
